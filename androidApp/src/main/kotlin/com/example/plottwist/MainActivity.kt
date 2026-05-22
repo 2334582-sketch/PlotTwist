@@ -22,4 +22,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AppAndroidPreview() {
     App()
+    Text("🚀 Proyecto: Giro Argumental", style = MaterialTheme.typography.headlineLarge)
+
 }
