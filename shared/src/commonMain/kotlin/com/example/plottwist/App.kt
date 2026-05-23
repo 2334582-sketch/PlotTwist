@@ -23,7 +23,17 @@ import plottwist.shared.generated.resources.compose_multiplatform
 @Preview
 fun App() {
     MaterialTheme {
+        // Cambio 1
+        Text("⚠️ Sección de Pruebas - Rama 2", style = MaterialTheme.typography.titleMedium)
         var showContent by remember { mutableStateOf(false) }
+
+        // Cambio 2
+        Button(onClick = { /* Acción vacía */ }) {
+            Text("Salir de la App")
+        }
+
+        // Cambio 3
+        Text("Desarrollado en 2026", style = MaterialTheme.typography.labelSmall)
         Column(
             modifier = Modifier
                 .background(MaterialTheme.colorScheme.primaryContainer)
