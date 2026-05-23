@@ -29,7 +29,7 @@ fun App() {
 
         // Cambio 2
         Button(onClick = { /* Acción vacía */ }) {
-            Text("Salir de la App")
+            Text("Modificacion hecha por Rama2")
         }
 
         // Cambio 3
