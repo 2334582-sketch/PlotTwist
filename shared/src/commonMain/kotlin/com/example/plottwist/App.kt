@@ -34,6 +34,9 @@ fun App() {
             Button(onClick = { showContent = !showContent }) {
                 Text("Proyecto plot twist")
                 Text("Equipo: El Tronco, Ali, Dayana")
+                Button(onClick = { /* Acción vacía */ }) {
+                    Text("Botón de Rama 1")
+                }
             }
             AnimatedVisibility(showContent) {
                 val greeting = remember { Greeting().greet() }
@@ -47,4 +50,4 @@ fun App() {
             }
         }
     }
-}
+        }
