@@ -29,7 +29,7 @@ fun App() {
 
         // Cambio 2
         Button(onClick = { /* Acción vacía */ }) {
-            Text("Modificacion hecha por Rama2")
+            Text("Modificacion 5")
         }
 
         // Cambio 3
