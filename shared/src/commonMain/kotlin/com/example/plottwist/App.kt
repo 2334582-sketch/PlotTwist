@@ -35,7 +35,7 @@ fun App() {
                 Text("Proyecto plot twist")
                 Text("Equipo: El Tronco, Ali, Dayana")
                 Button(onClick = { /* Acción vacía */ }) {
-                    Text("Botón de Rama 1")
+                    Text("Botón moverse")
                 }
             }
             AnimatedVisibility(showContent) {
