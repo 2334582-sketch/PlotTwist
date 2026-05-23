@@ -42,7 +42,11 @@ fun App() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
+                Text("Proyecto plot twist")
+                Text("Equipo: El Tronco, Ali, Dayana")
+                Button(onClick = { /* Acción vacía */ }) {
+                    Text("Botón moverse")
+                }
             }
             AnimatedVisibility(showContent) {
                 val greeting = remember { Greeting().greet() }
@@ -56,4 +60,4 @@ fun App() {
             }
         }
     }
-}
+        }
