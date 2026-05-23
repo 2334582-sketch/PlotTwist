@@ -33,6 +33,7 @@ fun App() {
         ) {
             Button(onClick = { showContent = !showContent }) {
                 Text("Proyecto plot twist")
+                Text("Equipo: El Tronco, Ali, Dayana")
             }
             AnimatedVisibility(showContent) {
                 val greeting = remember { Greeting().greet() }
