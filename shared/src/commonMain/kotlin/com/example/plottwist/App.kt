@@ -39,6 +39,7 @@ fun App() {
             when (ramaActiva) {
                 "MAIN" -> VistaRamaPrincipal()
                 "Rama1" -> RamaAli()
+                "Rama2" -> RamaDayana()
 
             }
         }
@@ -86,6 +87,15 @@ fun VistaRamaPrincipal() {
     }
 }
 @Composable
+fun RamaDayana() {
+    Card(
+        modifier = Modifier.fillMaxWidth().padding(8.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFFE6F2FF))
+    ) {
+        Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            Text("📌 PROCESO: RAMA DAYANA", style = MaterialTheme.typography.titleMedium, color = Color.Blue)
+            Spacer(modifier = Modifier.height(10.dp))
+            Text("Espacio reservado para que Dayana suba su vista desde su rama.", textAlign = TextAlign.Center, color = Color.Gray)
 fun RamaAli() {
     Card(
         modifier = Modifier.fillMaxWidth().padding(8.dp),
