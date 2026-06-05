@@ -38,6 +38,7 @@ fun App() {
             // Aquí se divide el flujo por rama e integra el Backend asignado
             when (ramaActiva) {
                 "MAIN" -> VistaRamaPrincipal()
+                "Rama1" -> RamaAli()
 
             }
         }
@@ -81,6 +82,19 @@ fun VistaRamaPrincipal() {
                     }
                 }
             }
+        }
+    }
+}
+@Composable
+fun RamaAli() {
+    Card(
+        modifier = Modifier.fillMaxWidth().padding(8.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFFFFF0F5))
+    ) {
+        Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            Text("📌 PROCESO: RAMA ALI", style = MaterialTheme.typography.titleMedium, color = Color.Magenta)
+            Spacer(modifier = Modifier.height(10.dp))
+            Text("Espacio reservado para que Ali suba su vista desde su rama.", textAlign = TextAlign.Center, color = Color.Gray)
         }
     }
 }
