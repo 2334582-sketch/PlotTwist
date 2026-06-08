@@ -87,14 +87,50 @@ fun VistaRamaPrincipal() {
 }
 @Composable
 fun RamaAli() {
+    var fase by remember { mutableStateOf(1) }
+    var puntaje by remember { mutableStateOf(0) }
+    var respondido by remember { mutableStateOf(false) }
+
     Card(
         modifier = Modifier.fillMaxWidth().padding(8.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFFFFF0F5))
     ) {
         Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("📌 PROCESO: RAMA ALI", style = MaterialTheme.typography.titleMedium, color = Color.Magenta)
+            Text("LA INDEPENDENCIA Y REVOLUCIÓN", style = MaterialTheme.typography.titleMedium, color = Color.Magenta)
             Spacer(modifier = Modifier.height(10.dp))
-            Text("Espacio reservado para que Ali suba su vista desde su rama.", textAlign = TextAlign.Center, color = Color.Gray)
+
+            when (fase) {
+                1 -> {
+                    Text("¡Viva México! Conectando con el endpoint /etapas de Ali en el Backend.", textAlign = TextAlign.Center)
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Button(onClick = { fase = 2 }, colors = ButtonDefaults.buttonColors(containerColor = Color.Magenta)) {
+                        Text("Consumir API (Ver Dato)")
+                    }
+                }
+                2 -> {
+                    Text("¿Sabías que el campaneo de Hidalgo no fue en la mañana, sino en la noche del 15 de septiembre?", textAlign = TextAlign.Center)
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Button(onClick = { fase = 3 }, colors = ButtonDefaults.buttonColors(containerColor = Color.Magenta)) {
+                        Text("Ir al Quiz de la API")
+                    }
+                }
+                3 -> {
+                    Text("¿Quién es conocido como el Padre de la Patria?", textAlign = TextAlign.Center)
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Button(onClick = { respondido = true; puntaje = 10 }, colors = ButtonDefaults.buttonColors(containerColor = Color.Magenta)) {
+                        Text("A) Miguel Hidalgo")
+                    }
+                    Spacer(modifier = Modifier.height(5.dp))
+                    Button(onClick = { respondido = true }, colors = ButtonDefaults.buttonColors(containerColor = Color.Magenta)) {
+                        Text("B) Porfirio Díaz")
+                    }
+
+                    if (respondido) {
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Text("¡Puntaje de Ali guardado localmente! Total: $puntaje pts", color = Color(0xFF4CAF50))
+                    }
+                }
+            }
         }
     }
 }
