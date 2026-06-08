@@ -27,8 +27,8 @@ fun App() {
 
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(onClick = { ramaActiva = "MAIN" }) { Text("Rama Main") }
-                Button(onClick = { ramaActiva = "ALI" }) { Text("Rama 1") }
-                Button(onClick = { ramaActiva = "DAYANA" }) { Text("Rama 2") }
+                Button(onClick = { ramaActiva = "Rama1" }) { Text("Rama 1") }
+                Button(onClick = { ramaActiva = "Rama2" }) { Text("Rama 2") }
             }
 
             Spacer(modifier = Modifier.height(20.dp))
@@ -87,24 +87,28 @@ fun VistaRamaPrincipal() {
     }
 }
 @Composable
-fun RamaDayana() {
-    Card(
-        modifier = Modifier.fillMaxWidth().padding(8.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFE6F2FF))
-    ) {
-        Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("📌 PROCESO: RAMA DAYANA", style = MaterialTheme.typography.titleMedium, color = Color.Blue)
-            Spacer(modifier = Modifier.height(10.dp))
-            Text("Espacio reservado para que Dayana suba su vista desde su rama.", textAlign = TextAlign.Center, color = Color.Gray)
 fun RamaAli() {
     Card(
         modifier = Modifier.fillMaxWidth().padding(8.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFFFFF0F5))
     ) {
         Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("📌 PROCESO: RAMA ALI", style = MaterialTheme.typography.titleMedium, color = Color.Magenta)
+            Text("PROCESO: RAMA ALI", style = MaterialTheme.typography.titleMedium, color = Color.Magenta)
             Spacer(modifier = Modifier.height(10.dp))
-            Text("Espacio reservado para que Ali suba su vista desde su rama.", textAlign = TextAlign.Center, color = Color.Gray)
+            Text("Esto es de la rama1.", textAlign = TextAlign.Center, color = Color.Gray)
         }
     }
+}
+@Composable
+fun RamaDayana() {
+    Card(
+        modifier = Modifier.fillMaxWidth().padding(8.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFFE6F2FF))
+    ) {
+        Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            Text("PROCESO: RAMA DAYANA", style = MaterialTheme.typography.titleMedium, color = Color.Blue)
+            Spacer(modifier = Modifier.height(10.dp))
+            Text("Esto es de la rama2.", textAlign = TextAlign.Center, color = Color.Gray)
+    }
+}
 }
