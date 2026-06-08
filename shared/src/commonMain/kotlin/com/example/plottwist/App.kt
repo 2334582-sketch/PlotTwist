@@ -27,18 +27,19 @@ fun App() {
 
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(onClick = { ramaActiva = "MAIN" }) { Text("Rama Main") }
-                Button(onClick = { ramaActiva = "ALI" }) { Text("Rama 1") }
-                Button(onClick = { ramaActiva = "DAYANA" }) { Text("Rama 2") }
+                Button(onClick = { ramaActiva = "Rama1" }) { Text("Rama 1") }
+                Button(onClick = { ramaActiva = "Rama2" }) { Text("Rama 2") }
             }
 
             Spacer(modifier = Modifier.height(20.dp))
-            Text("🦎 QUETZAL EL AJOLOTE DICE:", style = MaterialTheme.typography.titleLarge)
+            Text("QUETZAL EL AJOLOTE DICE:", style = MaterialTheme.typography.titleLarge)
             Spacer(modifier = Modifier.height(10.dp))
 
             // Aquí se divide el flujo por rama e integra el Backend asignado
             when (ramaActiva) {
                 "MAIN" -> VistaRamaPrincipal()
                 "Rama1" -> RamaAli()
+                "Rama2" -> RamaDayana()
 
             }
         }
@@ -131,6 +132,63 @@ fun RamaAli() {
                     }
                 }
             }
+            Text("PROCESO: RAMA ALI", style = MaterialTheme.typography.titleMedium, color = Color.Magenta)
+            Spacer(modifier = Modifier.height(10.dp))
+            Text("Esto es de la rama1.", textAlign = TextAlign.Center, color = Color.Gray)
         }
     }
+}
+@Composable
+fun RamaDayana() {
+    Card(
+        modifier = Modifier.fillMaxWidth().padding(8.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFFE6F2FF))
+    ) {
+        Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            Text("PROCESO: RAMA DAYANA", style = MaterialTheme.typography.titleMedium, color = Color.Blue)
+            Spacer(modifier = Modifier.height(10.dp))
+            Text("Esto es de la rama2.", textAlign = TextAlign.Center, color = Color.Gray)
+    }
+        @Composable
+        fun Rama2() {
+            var fase by remember { mutableStateOf(1) }
+            var puntaje by remember { mutableStateOf(0) }
+            var respondido by remember { mutableStateOf(false) }
+
+            Card(
+                modifier = Modifier.fillMaxWidth().padding(8.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFFE6F2FF))
+            ) {
+                Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("MÉXICO MODERNO", style = MaterialTheme.typography.titleMedium, color = Color.Blue)
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    when (fase) {
+                        1 -> {
+                            Text("¡Bienvenidos al siglo XXI! Mapeando los datos del servidor Ktor de Rama2.", textAlign = TextAlign.Center)
+                            Spacer(modifier = Modifier.height(10.dp))
+                            Button(onClick = { fase = 2 }) { Text("Consumir API (Ver Dato)") }
+                        }
+                        2 -> {
+                            Text("¿Sabías que la Constitución actual que rige a México se promulgó en Querétaro en 1917?", textAlign = TextAlign.Center)
+                            Spacer(modifier = Modifier.height(10.dp))
+                            Button(onClick = { fase = 3 }) { Text("Ir al Quiz de la API") }
+                        }
+                        3 -> {
+                            Text("¿En qué año se promulgó la Constitución Mexicana vigente?", textAlign = TextAlign.Center)
+                            Spacer(modifier = Modifier.height(10.dp))
+                            Button(onClick = { respondido = true; puntaje = 10 }) { Text("A) 1917") }
+                            Spacer(modifier = Modifier.height(5.dp))
+                            Button(onClick = { respondido = true }) { Text("B) 1810") }
+
+                            if (respondido) {
+                                Spacer(modifier = Modifier.height(10.dp))
+                                Text("¡Puntaje de Dayana guardado localmente! Total: $puntaje pts", color = Color(0xFF4CAF50))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+}
 }
